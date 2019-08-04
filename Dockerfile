@@ -1,9 +1,9 @@
 FROM  alpine:3.10   
 
-ENV SSLIBEV_DL=https://github.com/shadowsocks/shadowsocks-libev.git \
-    TINC_DL=https://www.tinc-vpn.org/packages/tinc-1.1pre17.tar.gz \
-    TINC_VER=1.1pre17 \
-    PURPLEI2P_DL=https://github.com/PurpleI2P/i2pd.git
+ENV SSLIBEV_DL=https://github.com/shadowsocks/shadowsocks-libev.git
+ENV TINC_DL=https://www.tinc-vpn.org/packages/tinc-1.1pre17.tar.gz
+ENV TINC_VER=1.1pre17
+ENV PURPLEI2P_DL=https://github.com/PurpleI2P/i2pd.git
 
 RUN apk update && apk add --no-cache --virtual build-deps \
     autoconf automake build-base make libev-dev libtool udns-dev libsodium-dev mbedtls-dev pcre-dev c-ares-dev readline-dev xz-dev \
