@@ -1,5 +1,5 @@
-FROM alpine3.10
-    
+FROM  alpine:3.10   
+
 ENV SSLIBEV_DL=https://github.com/shadowsocks/shadowsocks-libev.git \
     TINC_DL=https://www.tinc-vpn.org/packages/tinc-1.1pre17.tar.gz \
     TINC_VER=1.1pre17 \
