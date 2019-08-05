@@ -27,8 +27,8 @@ RUN apk update && apk add --no-cache --virtual build-deps \
     cd shadowsocks-libev && git submodule update --init --recursive && ./autogen.sh && ./configure --prefix=/usr --disable-documentation > /dev/null && make && \
     make install && \
     #
-    cd /tmp && git clone ${PURPLEI2P_DL} && \
-    cd i2pd && make && \
+    #cd /tmp && git clone ${PURPLEI2P_DL} && \
+    #cd i2pd && make && \
     
 rm -rf /tmp/* && \
 apk --no-cache --purge del build-deps
