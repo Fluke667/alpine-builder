@@ -10,8 +10,6 @@ RUN apk update && apk add --no-cache --virtual build-deps \
     autoconf automake build-base make libev-dev libtool udns-dev libsodium-dev mbedtls-dev pcre-dev c-ares-dev readline-dev xz-dev \
     linux-headers curl openssl-dev zlib-dev git gcc g++ gmp-dev lzo-dev libpcap-dev zstd-dev sudo \
     musl-dev curl  boost-dev miniupnpc-dev sqlite-dev gd-dev geoip-dev libmaxminddb-dev libxml2-dev libxslt-dev paxmark perl-dev pkgconf && \
-    echo "http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
-    apk update && apk add --no-cache i2pd && \
     # tinc
     cd /tmp && wget ${TINC_DL} && tar -xzvf tinc-1.1pre17.tar.gz && \
     cd tinc-1.1pre17 && ./configure --prefix=/usr --enable-jumbograms --enable-tunemu --sysconfdir=/etc --localstatedir=/var > /dev/null && make && sudo make install && \
@@ -24,8 +22,8 @@ RUN apk update && apk add --no-cache --virtual build-deps \
     curl -sSL ${LIBCORK_DL} | tar xz --strip 1 -C libcork && \
     ./autogen.sh && ./configure --prefix=/usr --disable-documentation && make install && \
     #
-    #cd /tmp && git clone ${PURPLEI2P_DL} && \
-    #cd i2pd && make && \
+    cd /tmp && git clone ${PURPLEI2P_DL} && \
+    cd i2pd && make && \
     
     
 rm -rf /tmp/* && \
