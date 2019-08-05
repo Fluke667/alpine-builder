@@ -25,9 +25,7 @@ RUN apk update && apk add --no-cache --virtual build-deps \
     cd /tmp && git clone ${PURPLEI2P_DL} && \
     cd i2pd && make && \
     
-    
-rm -rf /tmp/* && \
-apk --no-cache --purge del build-deps
+    apk --no-cache --purge del build-deps
 
 
 
