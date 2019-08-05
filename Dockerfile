@@ -22,3 +22,9 @@ rm -rf /tmp/* && \
 apk --no-cache --purge del build-deps
 
 
+
+
+ADD config /config
+RUN sh /config/installer.sh
+
+
