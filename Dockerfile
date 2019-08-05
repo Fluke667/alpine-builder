@@ -3,6 +3,7 @@ FROM  alpine:3.10
 ENV SSLIBEV_DL=https://github.com/shadowsocks/shadowsocks-libev.git \
 TINC_DL=https://www.tinc-vpn.org/packages/tinc-1.1pre17.tar.gz \
 PURPLEI2P_DL=https://github.com/PurpleI2P/i2pd.git \
+LIBCORK_DL=https://github.com/shadowsocks/libcork/archive/29d7cbafc4b983192baeb0c962ab1ff591418f56.tar.gz \
 OBFS_DL=https://github.com/shadowsocks/simple-obfs/archive/v0.0.5.tar.gz
 
 RUN apk update && apk add --no-cache --virtual build-deps \
@@ -19,8 +20,9 @@ RUN apk update && apk add --no-cache --virtual build-deps \
     cd shadowsocks-libev && git submodule update --init --recursive && ./autogen.sh && ./configure --prefix=/usr --disable-documentation > /dev/null && make && \
     make install && \
     #simple-obfs
-    cd /tmp && wget ${OBFS_DL} && tar -xzvf v0.0.5.tar.gz && \
-    cd simple-obfs-0.0.5 && ./autogen.sh && ./configure --disable-documentation && make install && \
+    cd /tmp && curl -sSL ${OBFS_DL} | tar xz --strip 1 && \
+    curl -sSL ${LIBCORK_DL} | tar xz --strip 1 -C libcork && \
+    ./autogen.sh && ./configure --prefix=/usr --disable-documentation && make install && \
     #
     #cd /tmp && git clone ${PURPLEI2P_DL} && \
     #cd i2pd && make && \
