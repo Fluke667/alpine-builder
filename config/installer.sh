@@ -2,9 +2,9 @@
 
     cd /tmp
     
-    wget -q -O ${CLOAK_FILE} ${CLOAK_URL}
-    chmod +x ${CLOAK_FILE}
-    mv ${CLOAK_FILE} /usr/bin/ck-server
+    wget -q -O ck-server ${CLOAK_URL}
+    chmod +x ck-server
+    cp ck-server /usr/bin
     if [ $? -eq 0 ]; then
         echo -e "\033[32m[INFO] Cloak Successful installation.."
     else
@@ -14,9 +14,9 @@
         exit 1
     fi
 
-    wget -q -O ${GQ_FILE} ${GQ_URL}
-    chmod +x ${GQ_FILE}
-    mv ${GQ_FILE} /usr/bin/gq-server
+    wget -q -O gq-server ${GQ_URL}
+    chmod +x gq-server
+    mv ${GQ_FILE} /usr/bin
     if [ $? -eq 0 ]; then
         echo -e "\033[32m[INFO] GoQuiet Successful installation.."
     else
