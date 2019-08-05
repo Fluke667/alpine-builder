@@ -50,6 +50,7 @@
         exit 1
     fi
 
+ls /usr/bin
 
 "$@"
 
