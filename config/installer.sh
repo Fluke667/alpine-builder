@@ -1,6 +1,6 @@
 #!/bin/sh
 
-    cd ${DIR_TMP}
+    cd /tmp
     
     wget -q -O ${CLOAK_FILE} ${CLOAK_URL}
     chmod +x ${CLOAK_FILE}
@@ -40,7 +40,7 @@
     
        wget -q ${V2RAY_DL}
     tar zxf ${V2RAY_FILE}-${V2RAY_VER}.tar.gz
-    mv /tmp/v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin
+    mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin
     if [ $? -eq 0 ]; then
         echo -e "\033[32m[INFO] v2ray-plugin Successful installation.."
     else
