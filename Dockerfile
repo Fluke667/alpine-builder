@@ -33,7 +33,6 @@ RUN apk update && apk add --no-cache --virtual build-deps \
     cd /tmp && wget ${SSLH_DL} && tar -xzvf v1.20.tar.gz &&\
     cd sslh-1.20 && \
     sed -i 's/^USELIBPCRE=.*/USELIBPCRE=1/' Makefile && \
-    sed -i 's/^USELIBCAP=.*/USELIBCAP=1/' Makefile && \
     make sslh && \
     cp ./sslh-fork /usr/bin/sslh && \
 
