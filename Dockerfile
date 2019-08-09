@@ -37,14 +37,11 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/reposito
     make sslh-fork ENABLE_REGEX=1 USELIBPCRE=1 USELIBCONFIG=1 USELIBCAP=1 && \
     cp ./sslh-fork /usr/bin/sslh && \
 
-    #cp /usr/sbin/i2pd /usr/bin/i2pd && \
-    #cp /usr/sbin/sslh-fork /usr/bin/sslh-fork && \
     
     rm -rf /tmp/* && \
     apk --no-cache --purge del build-deps && \
     
-    find / -name i2pd && \
-    find / -name sslh
+    
 
 
 
