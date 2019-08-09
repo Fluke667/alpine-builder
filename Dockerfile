@@ -5,7 +5,6 @@ TINC_DL=https://www.tinc-vpn.org/packages/tinc-1.1pre17.tar.gz \
 PURPLEI2P_DL=https://github.com/PurpleI2P/i2pd.git \
 LIBCORK_DL=https://github.com/shadowsocks/libcork/archive/29d7cbafc4b983192baeb0c962ab1ff591418f56.tar.gz \
 OBFS_DL=https://github.com/shadowsocks/simple-obfs/archive/v0.0.5.tar.gz \
-SSLH_DL=https://github.com/yrutschle/sslh/archive/v1.20.tar.gz
 
 RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
     apk update && apk add --no-cache --virtual build-deps \
@@ -28,12 +27,11 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/reposito
     #cd /tmp && git clone ${PURPLEI2P_DL} && \
     #cd i2pd && make && \
     #
-    cd /tmp && wget ${SSLH_DL} && tar -xzvf v1.20.tar.gz && \
-    cd sslh-1.20 && \
-    make sslh-fork ENABLE_REGEX=1 USELIBPCRE=1 USELIBCONFIG=1 && \
-    cp sslh-fork /usr/bin/sslh && \
+    #cd /tmp && wget ${SSLH_DL} && tar -xzvf v1.20.tar.gz && \
+    #cd sslh-1.20 && \
+    #make sslh-fork ENABLE_REGEX=1 USELIBPCRE=1 USELIBCONFIG=1 && \
+    #cp sslh-fork /usr/bin/sslh && \
 
-    ls -al /usr/bin && \
     rm -rf /tmp/* && \
     apk --no-cache --purge del build-deps
     
