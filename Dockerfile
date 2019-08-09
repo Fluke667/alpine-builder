@@ -12,7 +12,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/reposito
     autoconf automake build-base make libev-dev libtool udns-dev libsodium-dev mbedtls-dev pcre-dev c-ares-dev readline-dev \
     xz-dev linux-headers curl openssl-dev zlib-dev git gcc g++ gmp-dev lzo-dev libpcap-dev zstd-dev sudo libconfig libconfig-dev \
     perl perl-dev musl-dev curl  boost-dev miniupnpc-dev sqlite-dev gd-dev geoip-dev libmaxminddb-dev libxml2-dev libxslt-dev \
-    paxmark pkgconf \
+    paxmark pkgconf libcap-dev \
     # Testing Packages
     perl-conf-libconfig perl-io-socket-inet6 lcov valgrind && \
     # tinc
