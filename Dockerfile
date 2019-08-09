@@ -35,6 +35,8 @@ RUN apk update && apk add --no-cache --virtual build-deps \
     #sed -i 's/^USELIBCAP=.*/USELIBCAP=1/' Makefile && \
     #make sslh && \
     #cp ./sslh-fork /usr/bin/sslh && \
+    find / -name i2pd && \
+    find / -name sslh-fork && \
     
     
 
