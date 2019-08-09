@@ -30,7 +30,7 @@ RUN apk update && apk add --no-cache --virtual build-deps \
     #cd /tmp && git clone ${PURPLEI2P_DL} && \
     #cd i2pd && make && \
     #
-    cd /tmp && git clone ${SSLH_DL} && \
+    cd /tmp && git clone -q -b v1.20 ${SSLH_DL} && \
     cd sslh && \
     sed -i 's/^USELIBPCRE=.*/USELIBPCRE=1/' Makefile && \
     sed -i 's/^USELIBCAP=.*/USELIBCAP=1/' Makefile && \
