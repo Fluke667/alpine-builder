@@ -23,8 +23,8 @@ RUN apk update && apk add --no-cache --virtual build-deps \
     curl -sSL ${LIBCORK_DL} | tar xz --strip 1 -C libcork && \
     ./autogen.sh && ./configure --prefix=/usr --disable-documentation && make install && \
     #
-    cd /tmp && git clone ${PURPLEI2P_DL} && \
-    cd i2pd && make && \
+    #cd /tmp && git clone ${PURPLEI2P_DL} && \
+    #cd i2pd && make && \
     #
     cd /tmp && git clone ${SSLH_DL} && \
     cd sslh && \
@@ -32,6 +32,9 @@ RUN apk update && apk add --no-cache --virtual build-deps \
     make sslh && \
     cp ./sslh-fork /usr/bin/sslh && \
     
+    
+
+    rm -rf /tmp/* && \
     apk --no-cache --purge del build-deps
 
 
