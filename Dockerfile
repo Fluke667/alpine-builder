@@ -7,7 +7,7 @@ LIBCORK_DL=https://github.com/shadowsocks/libcork/archive/29d7cbafc4b983192baeb0
 OBFS_DL=https://github.com/shadowsocks/simple-obfs/archive/v0.0.5.tar.gz \
 SSLH_DL=https://github.com/yrutschle/sslh.git
 
-RUN echo "https://alpine-repo.sourceforge.io/packages" >> /etc/apk/repositories && \
+RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
     apk update && apk add --no-cache --virtual build-deps \
     autoconf automake build-base make libev-dev libtool udns-dev libsodium-dev mbedtls-dev pcre-dev c-ares-dev readline-dev xz-dev \
     linux-headers curl openssl-dev zlib-dev git gcc g++ gmp-dev lzo-dev libpcap-dev zstd-dev sudo libconfig libconfig-dev \
@@ -28,12 +28,12 @@ RUN echo "https://alpine-repo.sourceforge.io/packages" >> /etc/apk/repositories 
     #cd /tmp && git clone ${PURPLEI2P_DL} && \
     #cd i2pd && make && \
     #
-    cd /tmp && git clone ${SSLH_DL} && \
-    cd sslh && \
-    sed -i 's/^USELIBPCRE=.*/USELIBPCRE=1/' Makefile && \
-    sed -i 's/^USELIBCAP=.*/USELIBCAP=1/' Makefile && \
-    make sslh && \
-    cp ./sslh-fork /usr/bin/sslh && \
+    #cd /tmp && git clone ${SSLH_DL} && \
+    #cd sslh && \
+    #sed -i 's/^USELIBPCRE=.*/USELIBPCRE=1/' Makefile && \
+    #sed -i 's/^USELIBCAP=.*/USELIBCAP=1/' Makefile && \
+    #make sslh && \
+    #cp ./sslh-fork /usr/bin/sslh && \
     
     
 
