@@ -7,13 +7,13 @@ LIBCORK_DL=https://github.com/shadowsocks/libcork/archive/29d7cbafc4b983192baeb0
 OBFS_DL=https://github.com/shadowsocks/simple-obfs/archive/v0.0.5.tar.gz \
 SSLH_DL=https://github.com/yrutschle/sslh/archive/v1.20.tar.gz
 
-RUN apk update && apk add --no-cache --virtual build-deps \
+RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
+    apk update && apk add --no-cache --virtual build-deps \
     autoconf automake build-base make libev-dev libtool udns-dev libsodium-dev mbedtls-dev pcre-dev c-ares-dev readline-dev \
     xz-dev linux-headers curl openssl-dev zlib-dev git gcc g++ gmp-dev lzo-dev libpcap-dev zstd-dev sudo libconfig libconfig-dev \
     perl perl-dev musl-dev curl  boost-dev miniupnpc-dev sqlite-dev gd-dev geoip-dev libmaxminddb-dev libxml2-dev libxslt-dev \
-    paxmark pkgconf && \
-    echo "http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
-    apk update && apk add --no-cache \
+    paxmark pkgconf \
+    # Testing Packages
     perl-conf-libconfig perl-io-socket-inet6 lcov valgrind && \
     # tinc
     cd /tmp && wget ${TINC_DL} && tar -xzvf tinc-1.1pre17.tar.gz && \
@@ -32,8 +32,9 @@ RUN apk update && apk add --no-cache --virtual build-deps \
     #
     cd /tmp && wget ${SSLH_DL} && tar -xzvf v1.20.tar.gz &&\
     cd sslh-1.20 && \
-    sed -i 's/^USELIBPCRE=.*/USELIBPCRE=1/' Makefile && \
-    make sslh && \
+    #sed -i 's/^USELIBPCRE=.*/USELIBPCRE=1/' Makefile && \
+    #make sslh && \
+    make sslh-fork ENABLE_REGEX=1 USELIBPCRE=1 USELIBCONFIG=1 USELIBCAP=1 && \
     cp ./sslh-fork /usr/bin/sslh && \
 
     #cp /usr/sbin/i2pd /usr/bin/i2pd && \
@@ -43,7 +44,7 @@ RUN apk update && apk add --no-cache --virtual build-deps \
     apk --no-cache --purge del build-deps && \
     
     find / -name i2pd && \
-    find / -name sslh-fork
+    find / -name sslh
 
 
 
