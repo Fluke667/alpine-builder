@@ -39,7 +39,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/reposito
 
     
     rm -rf /tmp/* && \
-    apk --no-cache --purge del build-deps && \
+    apk --no-cache --purge del build-deps
     
     
 
