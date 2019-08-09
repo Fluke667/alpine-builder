@@ -32,7 +32,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/reposito
     cd sslh-1.20 && \
     #sed -i 's/^USELIBPCRE=.*/USELIBPCRE=1/' Makefile && \
     #make sslh && \
-    make sslh-fork ENABLE_REGEX=1 USELIBPCRE=1 USELIBCONFIG=1 USELIBCAP=1 && \
+    make sslh-fork ENABLE_REGEX=1 USELIBPCRE=1 USELIBCONFIG=1 && \
     cp ./sslh-fork /usr/bin/sslh && \
 
     
