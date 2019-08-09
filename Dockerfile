@@ -4,7 +4,8 @@ ENV SSLIBEV_DL=https://github.com/shadowsocks/shadowsocks-libev.git \
 TINC_DL=https://www.tinc-vpn.org/packages/tinc-1.1pre17.tar.gz \
 PURPLEI2P_DL=https://github.com/PurpleI2P/i2pd.git \
 LIBCORK_DL=https://github.com/shadowsocks/libcork/archive/29d7cbafc4b983192baeb0c962ab1ff591418f56.tar.gz \
-OBFS_DL=https://github.com/shadowsocks/simple-obfs/archive/v0.0.5.tar.gz
+OBFS_DL=https://github.com/shadowsocks/simple-obfs/archive/v0.0.5.tar.gz \
+SSLH_DL=https://github.com/yrutschle/sslh.git
 
 RUN apk update && apk add --no-cache --virtual build-deps \
     autoconf automake build-base make libev-dev libtool udns-dev libsodium-dev mbedtls-dev pcre-dev c-ares-dev readline-dev xz-dev \
