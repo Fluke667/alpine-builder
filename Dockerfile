@@ -28,7 +28,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/reposito
     #cd /tmp && git clone ${PURPLEI2P_DL} && \
     #cd i2pd && make && \
     #
-    cd /tmp && wget ${SSLH_DL} && tar -xzvf v1.20.tar.gz &&\
+    cd /tmp && wget ${SSLH_DL} && tar -xzvf v1.20.tar.gz && \
     cd sslh-1.20 && \
     make sslh-fork ENABLE_REGEX=1 USELIBPCRE=1 USELIBCONFIG=1 && \
     cp sslh-fork /usr/bin/sslh && \
