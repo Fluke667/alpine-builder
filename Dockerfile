@@ -30,12 +30,10 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/reposito
     #
     cd /tmp && wget ${SSLH_DL} && tar -xzvf v1.20.tar.gz &&\
     cd sslh-1.20 && \
-    #sed -i 's/^USELIBPCRE=.*/USELIBPCRE=1/' Makefile && \
-    #make sslh && \
     make sslh-fork ENABLE_REGEX=1 USELIBPCRE=1 USELIBCONFIG=1 && \
-    cp ./sslh-fork /usr/bin/sslh && \
+    cp sslh-fork /usr/bin/sslh && \
 
-    
+    ls -al /usr/bin && \
     rm -rf /tmp/* && \
     apk --no-cache --purge del build-deps
     
