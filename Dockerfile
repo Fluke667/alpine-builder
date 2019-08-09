@@ -11,7 +11,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/reposito
     apk update && apk add --no-cache --virtual build-deps \
     autoconf automake build-base make libev-dev libtool udns-dev libsodium-dev mbedtls-dev pcre-dev c-ares-dev readline-dev \
     xz-dev linux-headers curl openssl-dev zlib-dev git gcc g++ gmp-dev lzo-dev zstd-dev sudo libconfig libconfig-dev \
-    perl perl-dev musl-dev boost-dev miniupnpc-dev sqlite-dev gd-dev geoip-dev libmaxminddb-dev libxml2-dev libxslt-dev \
+    perl perl-dev musl musl-dev boost-dev miniupnpc-dev sqlite-dev gd-dev geoip-dev libmaxminddb-dev libxml2-dev libxslt-dev \
     paxmark pkgconf perl-conf-libconfig perl-io-socket-inet6 lcov valgrind libcap libpcap-dev && \
     # tinc
     cd /tmp && wget ${TINC_DL} && tar -xzvf tinc-1.1pre17.tar.gz && \
