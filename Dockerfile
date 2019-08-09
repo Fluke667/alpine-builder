@@ -5,7 +5,7 @@ TINC_DL=https://www.tinc-vpn.org/packages/tinc-1.1pre17.tar.gz \
 PURPLEI2P_DL=https://github.com/PurpleI2P/i2pd.git \
 LIBCORK_DL=https://github.com/shadowsocks/libcork/archive/29d7cbafc4b983192baeb0c962ab1ff591418f56.tar.gz \
 OBFS_DL=https://github.com/shadowsocks/simple-obfs/archive/v0.0.5.tar.gz \
-SSLH_DL=https://github.com/yrutschle/sslh.git
+SSLH_DL=https://github.com/yrutschle/sslh/archive/v1.20.tar.gz
 
 RUN apk update && apk add --no-cache --virtual build-deps \
     autoconf automake build-base make libev-dev libtool udns-dev libsodium-dev mbedtls-dev pcre-dev c-ares-dev readline-dev \
@@ -30,8 +30,8 @@ RUN apk update && apk add --no-cache --virtual build-deps \
     #cd /tmp && git clone ${PURPLEI2P_DL} && \
     #cd i2pd && make && \
     #
-    cd /tmp && git clone -q -b v1.20 ${SSLH_DL} && \
-    cd sslh && \
+    cd /tmp && wget ${SSLH_DL} && tar -xzvf v1.20.tar.gz &&\
+    cd sslh-1.20 && \
     sed -i 's/^USELIBPCRE=.*/USELIBPCRE=1/' Makefile && \
     sed -i 's/^USELIBCAP=.*/USELIBCAP=1/' Makefile && \
     make sslh && \
