@@ -7,9 +7,10 @@ LIBCORK_DL=https://github.com/shadowsocks/libcork/archive/29d7cbafc4b983192baeb0
 OBFS_DL=https://github.com/shadowsocks/simple-obfs/archive/v0.0.5.tar.gz \
 MICROSOCKS_DL=https://github.com/rofl0r/microsocks.git
 
-RUN apk update && apk add --no-cache --virtual build-deps \
+RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
+    apk update && apk add --no-cache --virtual build-deps \
     autoconf automake build-base make libev-dev libtool udns-dev libsodium-dev mbedtls-dev pcre-dev c-ares-dev readline-dev \
-    xz-dev linux-headers curl openssl-dev zlib-dev git gcc g++ gmp-dev lzo-dev zstd-dev sudo libconfig libconfig-dev \
+    xz-dev linux-headers curl openssl-dev zlib-dev git gcc g++ gmp-dev lzo-dev zstd-dev sudo libconfig libconfig-dev perl-conf-libconfig \
     perl perl-dev musl musl-dev boost-dev miniupnpc-dev sqlite-dev gd-dev geoip-dev libmaxminddb-dev libxml2-dev libxslt-dev \
     paxmark pkgconf perl-conf-libconfig perl-io-socket-inet6 lcov valgrind libcap libpcap-dev && \
     # tinc
