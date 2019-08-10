@@ -32,7 +32,7 @@ RUN apk update && apk add --no-cache --virtual build-deps \
     #make sslh-fork ENABLE_REGEX=1 USELIBPCRE=1 USELIBCONFIG=1 && \
     #cp sslh-fork /usr/bin/sslh && \
 
-    rm -rf /tmp/* && \
+    #rm -rf /tmp/* && \
     apk --no-cache --purge del build-deps
     
     
